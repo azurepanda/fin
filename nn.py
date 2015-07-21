@@ -1,4 +1,3 @@
-from pybrain.tools.shortcuts import buildNetwork;
 import math
 import matplotlib.pyplot as plt
 from matplotlib import rcParams
@@ -7,16 +6,17 @@ import numpy as np
 import os
 from os import path
 #Date,Open,High,Low,Close,Volume,OpenInt
+dir = 'E:/Python/Workspace/Anaconda/fin/pairs/';
 
 print;
 def readFiles():
     pairs = [[], []]
-    for f in os.listdir('./pairs/'):
+    for f in os.listdir(dir):
         pairs[0].append(f[:-4]);
         data = [];
         lineno = 0;
         dayno = 0;
-        for line in open('./pairs/' + f, 'r').read().split('\r\n'):
+        for line in open(dir + f, 'r').read().split('\n'):
             i = 0;
             linedata = line.split(',');
             if not lineno == 0:
